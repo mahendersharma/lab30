@@ -1,3 +1,6 @@
+if(process.env.NODE_ENV !== 'production'){
+    require ('dotenv').config();
+}
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -14,11 +17,12 @@ const User = require('./models/user')
 const blogRoutes = require('./routes/blog');
 const subscribeRoutes = require('./routes/subscribe');
 const authRouter = require('./routes/auth')
-mongoose.connect('mongodb://localhost:27017/news',
+mongoose.connect(process.env.DB_URL,
  {
-     useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify:false,
+    useCreateIndex:true
     })
     .then(()=>{
         console.log("db connect");  
@@ -26,7 +30,7 @@ mongoose.connect('mongodb://localhost:27017/news',
 
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'/views'));
-app.use(express.static(__dirname + './assets'));
+app.use(express.static(__dirname + './assets'));    
 app.use(express.static(path.join(__dirname, '/assets')));
 app.use(express.static(__dirname + './public'));
 app.use(express.static(path.join(__dirname, '/public')));
@@ -61,6 +65,6 @@ app.use(subscribeRoutes);
 app.use(authRouter)
 
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log("server start 3000")
 })
