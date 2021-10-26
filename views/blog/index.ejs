@@ -1,0 +1,156 @@
+<%-include("./partalis/header")%>
+  
+<%-include("./partalis/flash")%>
+<div class="banner-area breadcrumb-area padding-top-120 padding-bottom-90">
+ 
+  <div class="container padding-top-120">
+      <div class="row justify-content-center">
+          <nav aria-label="breadcrumb">
+              <h2 class="page-title">Milk</h2>
+              <ol class="breadcrumb text-center">
+                  <li class="breadcrumb-item"><a href="/">Home</a> /<a href="#">page</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">food shop</li>
+              </ol>
+          </nav>
+      </div>
+  </div>
+</div>
+
+<!-- food-area-wrapper -->
+<div class="food-area-wrapper">
+ 
+  <div class="container padding-top-120 padding-bottom-120">
+      <div class="row">
+          <div class="col-lg-3 col-md-4">
+              <!-- sidebar-widget-1 -->
+             
+
+              <!-- sidebar-widget-2 -->
+              <div class="sidebar-widget-2 wow fadeInUp">
+                  <h5>filter by price</h5>
+                  <div class="filter-sidebar margin-top-30">
+                      <div id="slider-range"></div>
+                      <div>
+                          <div class="margin-top-30">
+                              <span class="textbold"> Price:</span> <input type="text" id="amount" readonly
+                                  class="textbold">
+                              <button class="btn">filter</button>
+                          </div>
+                      </div>
+                  </div>
+
+
+              </div>
+              <!-- sidebar-widget-3 -->
+              <div class="sidebar-widget-3 wow fadeInUp">
+                  <h5>filter by menu</h5>
+                  <% for(let blog of blogs){%>
+                      <div class="sidebar-widget d-flex align-items-center">
+                      <div class="dish-img">
+                          <a href="single-food.html"> <img src="images/menu-item/fm1.png" alt=""></a>
+                      </div>
+                      <div class="dish-content d-flex justify-content-between">
+                          <h6> 
+                            <a href="/findcategory?q=<%=blog.category%>"><%=blog.category%></a></h6>
+                          <span class="price"><%=blog.category.length%></span>
+                      </div>
+                  </div>
+                  <% } %>
+              </div>
+
+              <!-- sidebar-widget-4 -->
+              <div class="sidebar-widget-4 wow fadeInUp">
+                  <div class="gallery-img-4">
+                      <h5>Super Combo
+                          Burger</h5>
+                      <a href="shopping-cart.html" class="btn">order now</a>
+                      <img src="assets/images/gallery/22.png" alt="">
+                      <span class="gprice-4"><img src="assets/images/gallery/25.png" alt=""></span>
+                      <span class="gshape-1"><img src="assets/images/shapes/35.png" alt=""></span>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-9 col-md-8">
+              <!-- food area -->
+              <section class="food-area  popular-dishes-area">
+                  <div class="container">
+                      <nav
+                          class="popular-tab-nav d-flex flex-wrap justify-content-between align-items-center  margin-bottom-60">
+                          <div class="nav" id="nav-tab-1" role="tablist">
+                              <a class="nav-link active" id="food1-tab" data-toggle="tab" href="#food1" role="tab"
+                                  aria-controls="food1" aria-selected="true"><span><i
+                                          class="fas fa-th"></i></span></a>
+                              <a class="nav-link" id="food2-tab" data-toggle="tab" href="#food2" role="tab"
+                                  aria-controls="food2" aria-selected="false"><span><i
+                                          class="fas fa-th-list"></i></span></a>
+                          </div>
+                          <span>There are 16 products.</span>
+                          <div class="sorting-area">
+                              <span class="margin-right-20">sort by : </span>
+                              <span>sort by price: </span>
+                              <span>
+                                  <select name="#" id="#">
+                                      <option value="#">high to low</option>
+                                      <option value="#">low to high</option>
+                                      <option value="#">high to low</option>
+                                  </select>
+                              </span>
+                          </div>
+                      </nav>
+                      <!-- main-content -->
+
+                      <div class="tab-content" id="nav-tabContent-1">
+                          <!-- food 1 -->
+                          <div class="tab-pane fade show active" id="food1" role="tabpanel"
+                              aria-labelledby="food1">
+                              <div class="row">
+                                <% for(let blog of blogs){%>
+                                  <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                                      <div class="single-dishes">
+                                          <div class="dish-img">
+                                              <img src="<%=blog.img%>" style="width: inherit;"
+                                                  alt="">
+                                          </div>
+                                          <div class="dish-content">
+                                              <h5><a href="/blog/<%=blog.id%>"> <%=blog.name%>
+                                                  </a></h5>
+                                              <p><%=blog.desc.substring(0,50)%></p>
+                                              <span class="price">price :$15.00</span>
+
+                                          </div>
+                                          <span class="badge">hot</span>
+                                          <div class="cart-opt">
+                                              <span>
+                                                  <a href="#"><i class="fas fa-heart"></i></a>
+                                              </span>
+                                              <span>
+                                                  <a href="shopping-cart.html"><i
+                                                          class="fas fa-shopping-basket"></i></a>
+                                              </span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <%}%>
+                              </div>
+                          </div>
+                         
+                      </div>
+                  </div>
+
+                  <!-- pagination-area -->
+                  <div class="pagination-area">
+                      <div class="container">
+                          <div class="pagination">
+                              <a class="active" href="#">01</a>
+                              <a href="#">02</a>
+                              <a href="#">03</a>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+          </div>
+      </div>
+  </div>
+</div>  
+
+    <%-include("./partalis/footer")%>

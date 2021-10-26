@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from html.softtechitltd.com/khadyo/khadyo/homepage3.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Aug 2021 06:12:57 GMT -->
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Page Title -->
+    <title>Natureway Farm</title>
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" href="favicon.png">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awsome-all.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Preloader Starts -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- header -->
+    <header class="header3">
+        <!-- header-bottom -->
+        <div class="header-bottom home2-header-bottom margin-top-20">
+            <div class="container position-relative">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-8 margin-bottom-20">
+                        <div class="logo">
+                            <a href="index.html"><img src="images/logo/logo3.png" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 d-none d-lg-block">
+                        <nav id="mobile-menu">
+                            <ul class="main-menu main-menu3">
+                                <li> <a href="/" >home</a>
+                                </li>
+                                <li><a href="/about">about</a></li>
+                                <li><a href="/cake-product">menu</a></li>
+                                
+                                <li><a href="/servies">servies</a>
+                                   
+                                </li>
+                                <li><a href="/contact">contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3 col-md-9 col-sm-8 col-12">
+                        <% if(!currentUser){%>
+                        <div
+                            class="customer-area3 d-flex align-items-center justify-content-center justify-content-md-end">
+                            <span class="position-relative">
+                                <a class="shopping" href="shopping-cart.html"><i class="fas fa-shopping-basket"></i></a>
+                                <span class="shop-counter">1</span>
+                            </span>
+                            <a href="/login" class="btn2">login</a>
+                        </div>
+                        <%}else{%>
+                            <div
+                            class="customer-area3 d-flex align-items-center justify-content-center justify-content-md-end">
+                            <span class="position-relative">
+                                <a class="shopping" href="shopping-cart.html"><i class="fas fa-shopping-basket"></i></a>
+                                <span class="shop-counter">1</span>
+                            </span>
+                            <a href="#" class="btn2"><%=currentUser.username%> </a>
+                            
+                        </div>
+                        <%}%>
+
+                    </div>
+                </div>
+                <!-- mobile-menu -->
+                <div class="mobile-menu home2 home3-mobile-menu"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- snack section -->
+   
