@@ -92,7 +92,7 @@ router.get('/blog/:id',async(req,res)=>{
     }
     
     })
-router.get('/',async(req,res)=>{
+    router.get('/',async(req,res)=>{
     try{
         const blogs = await  Blog.find({});
         res.render('blog/home',{blogs});
@@ -106,6 +106,15 @@ router.get('/',async(req,res)=>{
     try{
         const blogs = await  Blog.find({});
         res.render('blog/index',{blogs});
+    }
+    catch(e){
+        res.send("Something Went Problem");
+    }
+  
+   })
+   router.get('/shopping-cart',async(req,res)=>{
+    try{
+        res.render('blog/cart');
     }
     catch(e){
         res.send("Something Went Problem");
