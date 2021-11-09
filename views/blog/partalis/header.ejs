@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body>
@@ -68,21 +70,19 @@
                         <% if(!currentUser){%>
                         <div
                             class="customer-area3 d-flex align-items-center justify-content-center justify-content-md-end">
-                            <span class="position-relative">
-                                <a class="shopping" href="shopping-cart.html"><i class="fas fa-shopping-basket"></i></a>
-                                <span class="shop-counter">1</span>
-                            </span>
                             <a href="/login" class="btn2">login</a>
                         </div>
                         <%}else{%>
                             <div
                             class="customer-area3 d-flex align-items-center justify-content-center justify-content-md-end">
                             <span class="position-relative">
-                                <a class="shopping" href="shopping-cart.html"><i class="fas fa-shopping-basket"></i></a>
-                                <span class="shop-counter">1</span>
+                                <!-- <a href="#" class="btn2"><%=currentUser.username%> </a> -->
+
+                                <a class="shopping" href="/user/<%=currentUser._id%>/cart"><i class="fas fa-shopping-basket"></i></a>
+                                <span class="shop-counter"><%=currentUser.cart.length%></span>
                             </span>
-                            <a href="#" class="btn2"><%=currentUser.username%> </a>
-                            
+                           
+                            <a href="/logout" class="btn2">logout</a>
                         </div>
                         <%}%>
 

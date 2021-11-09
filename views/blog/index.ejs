@@ -124,8 +124,10 @@
                                                   <a href="#"><i class="fas fa-heart"></i></a>
                                               </span>
                                               <span>
-                                                  <a href="shopping-cart.html"><i
-                                                          class="fas fa-shopping-basket"></i></a>
+                                                <form action="/user/<%=blog._id%>/cart" method="POST">
+                                                    <button class="btn btn-secondary">Add To Cart</button>
+                                                  </form>
+                                                
                                               </span>
                                           </div>
                                       </div>

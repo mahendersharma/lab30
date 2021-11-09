@@ -6,8 +6,18 @@ const userSchema = new mongoose.Schema({
         type:String,
         require:true,
         unique:true
-    }
-
+    },  cart: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'Blog'
+        }
+    ],
+    orders: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'Order'
+        }
+    ]
 })
 
 userSchema.plugin(passportLocalMongoose);

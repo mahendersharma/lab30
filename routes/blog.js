@@ -1,8 +1,10 @@
 const express = require('express');
 const Blog = require('../models/blog');
+const Contact = require('../models/contact');
 const router = express();
 const Review = require('../models/review')
 const {isLogin} = require('../middleware')
+const Swal = require('sweetalert2');
 
 
 router.get('/admin-blog',isLogin, async(req,res)=>{
@@ -112,15 +114,7 @@ router.get('/blog/:id',async(req,res)=>{
     }
   
    })
-   router.get('/shopping-cart',async(req,res)=>{
-    try{
-        res.render('blog/cart');
-    }
-    catch(e){
-        res.send("Something Went Problem");
-    }
   
-   })
 
 
 // create a new Reviwe
@@ -180,8 +174,6 @@ router.get('/about',async(req,res)=>{
             router.get('/findcategory',async(req,res)=>{
                 try{
                    const blogs = await  Blog.find({category:req.query.q});
-                //console.log(product);
-                //res.send(products);
                 res.render('blog/category',{blogs});
                
                 }
@@ -189,5 +181,52 @@ router.get('/about',async(req,res)=>{
                     console.log(e.message)
                         res.render() 
                 }
+                })
+                router.get('/user/:userId/cart',isLogin,async(req,res)=>{
+                    try {
+                        const user = await User.findById(req.params.userId).populate('cart');
+                        console.log(user)
+                        res.render('blog/cart', { userCart: user.cart });
+                    }
+                    catch (e) {
+                        req.flash('error', 'Unable to Add this product');
+                        res.render('error');
+                        console.log("hello")
+                    }
+                  
+                   })
+                // add to cart 
+                router.post('/user/:id/cart', isLogin, async (req, res) => {
+  
+                    try {
+                        const product = await Blog.findById(req.params.id);
+                
+                        const user = req.user;
+                
+                        user.cart.push(product);
+                
+                        await user.save();
+                        req.flash('success', 'Added to cart successfully')
+                        res.redirect(`/user/${req.user._id}/cart`);
+                    }
+                    catch (e) {
+                        req.flash('error', 'Unable to get the cart at this moment');
+                        res.render('error');
+                    }
+                });
+                // create message 
+                router.post('/contactmessage',async(req,res)=>
+                {
+                    try{
+                       
+                     await Contact.create(req.body.message)
+                        req.flash('success','Successfully !! ✔✔❤')
+                        res.redirect('/contact')
+                    }catch(e){
+                        console.log(e.message)
+                        req.flash('error','Can,t Blog Create  !! 👀👀')
+                        res.render()
+                    }
+                   
                 })
 module.exports = router;

@@ -1,14 +1,7 @@
 <%-include("./partalis/header")%>
 
 <div class="banner-area breadcrumb-area padding-top-120 padding-bottom-90">
-  <div class="bread-shapes">
-      <span class="b-shape-1 item-bounce"><img src="assets/images/img/5.png" alt=""></span>
-      <span class="b-shape-2"><img src="assets/images/img/6.png" alt=""></span>
-      <span class="b-shape-3"><img src="assets/images/img/7.png" alt=""></span>
-      <span class="b-shape-4"><img src="assets/images/img/9.png" alt=""></span>
-      <span class="b-shape-5"><img src="assets/images/shapes/18.png" alt=""></span>
-      <span class="b-shape-6 item-animateOne"><img src="assets/images/img/7.png" alt=""></span>
-  </div>
+  
   <div class="container padding-top-120">
       <div class="row justify-content-center">
           <nav aria-label="breadcrumb">
@@ -41,23 +34,23 @@
                       <div
                           class="col-lg-4 col-md-4 col-sm-4 col-4 d-flex align-items-end justify-content-end margin-bottom-20">
                           <div class="about-gallery-1">
-                              <img src="images/gallery/1.jpg" alt="">
+                              <img src="images/img/htshape7.png" alt="">
                           </div>
                       </div>
                       <div class="col-lg-8 col-md-8 col-sm-8 col-8 margin-bottom-20">
                           <div class="about-gallery-2">
-                              <img src="images/gallery/2.jpg" alt="">
+                              <img src="images/img/butter.jpg" alt="">
 
                           </div>
                       </div>
                       <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                           <div class="about-gallery-3">
-                              <img src="images/gallery/3.jpg" alt="">
+                              <img src="images/img/paneer.jpg" alt="">
                           </div>
                       </div>
                       <div class="col-lg-5 col-md-5 col-sm-5 col-5 d-flex align-items-stretch ">
                           <div class="about-gallery-5 text-center">
-                              <img src="images/gallery/5.jpg" alt="">
+                              <img src="images/img/mil2.jpg" alt="">
                           </div>
                       </div>
                   </div>
@@ -66,11 +59,13 @@
           <div class="col-lg-6 col-md-12 wow fadeInUp">
               <div class="contact-form-area">
                   <h3>write <span>to us</span></h3>
-                  <form action="#">
-                      <input type="text" placeholder="your name:">
-                      <input type="email" placeholder="email">
-                      <input type="url" placeholder="website">
-                      <textarea placeholder="write your text"></textarea>
+                  <%-include("./partalis/flash")%>
+
+                  <form class="validated-form" action="/contactmessage" method="POST" novalidate>
+                      <input type="text" placeholder="your name:"name="message[name]" required>
+                      <input type="email" placeholder="email" name="message[email]" required>
+                      <input type="number" placeholder="phone" name="message[phone]" required>
+                      <textarea placeholder="write your text"name="message[message]" required></textarea>
                       <button type="submit" class="btn">send a message</button>
                   </form>
               </div>
@@ -92,7 +87,7 @@
                   </div>
                   <div class="info-content text-center text-lg-left">
                       <h5>Phone Us 24/7</h5>
-                      <p>123-5879406</p>
+                      <p>9654194008</p>
                   </div>
               </div>
           </div>
@@ -104,8 +99,7 @@
                   </div>
                   <div class="info-content text-center text-lg-left">
                       <h5>Get Direction</h5>
-                      <p>Sector:7, Road:27, House:18,
-                          Uttara, Dhaka, 1230 Dhaka.</p>
+                      <p>SNatureWay Farm, Village Raiseena, Gurgaon, Haryana</p>
                   </div>
               </div>
           </div>
@@ -117,7 +111,7 @@
                   </div>
                   <div class="info-content text-center text-lg-left">
                       <h5>Opening Hours</h5>
-                      <p>Everyday 11.00 PM - 11.00 AM</p>
+                      <p>Everyday 8.00 - 20.00</p>
                   </div>
               </div>
           </div>
