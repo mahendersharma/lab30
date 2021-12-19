@@ -48,7 +48,7 @@
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-2 col-md-2 col-sm-4 col-8 margin-bottom-20">
                         <div class="logo">
-                            <a href="index.html"><img src="images/logo/logo3.png" alt="logo"></a>
+                        <img src="images/img/logofarm.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-lg-7 d-none d-lg-block">
@@ -67,24 +67,25 @@
                         </nav>
                     </div>
                     <div class="col-lg-3 col-md-9 col-sm-8 col-12">
-                        <% if(!currentUser){%>
-                        <div
+                        <%if(!currentUser){%>
+                            <div
                             class="customer-area3 d-flex align-items-center justify-content-center justify-content-md-end">
                             <a href="/login" class="btn2">login</a>
                         </div>
-                        <%}else{%>
-                            <div
-                            class="customer-area3 d-flex align-items-center justify-content-center justify-content-md-end">
-                            <span class="position-relative">
-                                <!-- <a href="#" class="btn2"><%=currentUser.username%> </a> -->
-
-                                <a class="shopping" href="/user/<%=currentUser._id%>/cart"><i class="fas fa-shopping-basket"></i></a>
-                                <span class="shop-counter"><%=currentUser.cart.length%></span>
-                            </span>
-                           
-                            <a href="/logout" class="btn2">logout</a>
-                        </div>
+                          
+                            <%}else{%>
+                                <div  class="customer-area3 d-flex align-items-center justify-content-center justify-content-md-end">
+                                <span class="position-relative">
+                                    <!-- <a href="#" class="btn2"><%=currentUser.username%> </a> -->
+    
+                                    <a class="shopping" href="/user/<%=currentUser._id%>/cart"><i class="fas fa-shopping-basket"></i></a>
+                                    <span class="shop-counter"><%=currentUser.cart.length%></span>
+                                </span>
+                               
+                                <a href="/logout" class="btn2">logout</a>
+                            </div>
                         <%}%>
+                        
 
                     </div>
                 </div>

@@ -5,6 +5,7 @@ const router = express();
 const Review = require('../models/review')
 const {isLogin} = require('../middleware')
 const Swal = require('sweetalert2');
+const User = require('../models/user');
 
 
 router.get('/admin-blog',isLogin, async(req,res)=>{
@@ -185,12 +186,10 @@ router.get('/about',async(req,res)=>{
                 router.get('/user/:userId/cart',isLogin,async(req,res)=>{
                     try {
                         const user = await User.findById(req.params.userId).populate('cart');
-                        console.log(user)
+                        console.log("user : ",user)
                         res.render('blog/cart', { userCart: user.cart });
                     }
                     catch (e) {
-                        req.flash('error', 'Unable to Add this product');
-                        res.render('error');
                         console.log("hello")
                     }
                   
@@ -228,5 +227,16 @@ router.get('/about',async(req,res)=>{
                         res.render()
                     }
                    
+                })
+                // reomve add to cart product
+                router.delete('/user/:userid/cart/:id', async(req, res) => {
+
+                    const { userid, id } = req.params;
+                    await User.findByIdAndUpdate(userid,{$pull:{cart:id}})
+                    res.redirect(`/user/${req.user._id}/cart`);
+                })
+                
+                router.get('/cart/payment', (req, res) => {
+                    res.render('payment/payment')
                 })
 module.exports = router;

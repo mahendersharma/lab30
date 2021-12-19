@@ -19,6 +19,9 @@ const blogSchema = new mongoose.Schema({
     desc:
     {
         type: String
+    },price:
+    {
+        type: Number
     },
     reviews: [
       {

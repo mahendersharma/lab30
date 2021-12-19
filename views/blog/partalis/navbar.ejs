@@ -1,0 +1,64 @@
+<div class="preloader" id="preloader">
+    <div class="preloader-inner">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+</div>
+
+<!-- header -->
+<header class="header3">
+    <!-- header-bottom -->
+    <div class="header-bottom home2-header-bottom margin-top-20">
+        <div class="container position-relative">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-8 margin-bottom-20">
+                    <div class="logo">
+                    <img src="images/img/logofarm.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-7 d-none d-lg-block">
+                    <nav id="mobile-menu">
+                        <ul class="main-menu main-menu3">
+                            <li> <a href="/" >home</a>
+                            </li>
+                            <li><a href="/about">about</a></li>
+                            <li><a href="/cake-product">menu</a></li>
+                            
+                            <li><a href="/servies">servies</a>
+                               
+                            </li>
+                            <li><a href="/contact">contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-9 col-sm-8 col-12">
+                    <%if(!currentUser){%>
+                        <div
+                        class="customer-area3 d-flex align-items-center justify-content-center justify-content-md-end">
+                        <a href="/login" class="btn2">login</a>
+                    </div>
+                      
+                        <%}else{%>
+                            <div  class="customer-area3 d-flex align-items-center justify-content-center justify-content-md-end">
+                            <span class="position-relative">
+                                <!-- <a href="#" class="btn2"><%=currentUser.username%> </a> -->
+
+                                <a class="shopping" href="/user/<%=currentUser._id%>/cart"><i class="fas fa-shopping-basket"></i></a>
+                                <span class="shop-counter"><%=currentUser.cart.length%></span>
+                            </span>
+                           
+                            <a href="/logout" class="btn2">logout</a>
+                        </div>
+                    <%}%>
+                    
+
+                </div>
+            </div>
+            <!-- mobile-menu -->
+            <div class="mobile-menu home2 home3-mobile-menu"></div>
+        </div>
+    </div>
+</header>
